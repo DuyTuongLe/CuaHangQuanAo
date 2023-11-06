@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title | Ecommerce</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="~/AdminAssets/vendors/typicons/typicons.css">
+    <link rel="stylesheet" href="~/AdminAssets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/AdminAssets/css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="~/AdminAssets/images/favicon.png" />
+</head>
+<body>
+    <div class="container-scroller">
+
+        @await Html.PartialAsync("_NavBar.cshtml")
+
+        @await Html.PartialAsync("_SideBarPartialView.cshtml")
+
+        @RenderBody()
+
+        @await Html.PartialAsync("_Footer.cshtml")
+
+    </div>
+
+
+    <!-- container-scroller -->
+    <!-- base:js -->
+    <script src="~/AdminAssets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <script src="~/AdminAssets/vendors/chart.js/Chart.min.js"></script>
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="~/AdminAssets/js/off-canvas.js"></script>
+    <script src="~/AdminAssets/js/hoverable-collapse.js"></script>
+    <script src="~/AdminAssets/js/template.js"></script>
+    <script src="~/AdminAssets/js/settings.js"></script>
+    <script src="~/AdminAssets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="~/AdminAssets/js/dashboard.js"></script>
+    <!-- End custom js for this page-->
+   @await Component.InvokeAsync("Notyf")
+    @await RenderSectionAsync("Scripts", required:false)
+</body>
+
+</html>
+
