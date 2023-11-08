@@ -1,4 +1,6 @@
 using AspNetCoreHero.ToastNotification;
+using CuaHangQuanAo.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 
@@ -6,6 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+var strConnectDB = builder.Configuration.GetConnectionString("ChuoiKN");
+builder.Services.AddDbContext<shopclothesDBContext>(options => { options.UseSqlServer(strConnectDB); });
+
 builder.Services.AddNotyf(config => { config.DurationInSeconds = 3; config.IsDismissable = true; config.Position = NotyfPosition.TopRight; });
 builder.Services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(UnicodeRanges.All));
 
